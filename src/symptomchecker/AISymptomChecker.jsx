@@ -20,7 +20,7 @@ const iStyle = {
 export default function AISymptomChecker({ patients = [] }) {
   const [patientId,    setPatientId]    = useState('');
   const [question,     setQuestion]     = useState('');
-  const [apiKey,       setApiKey]       = useState('');
+  const [apiKey,       setApiKey]       = useState('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');
   const [image,        setImage]        = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const [loading,      setLoading]      = useState(false);
@@ -47,7 +47,6 @@ export default function AISymptomChecker({ patients = [] }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!apiKey.trim()) { setError('Please enter your Groq API key.'); return; }
     if (!image && !question.trim()) { setError('Please upload an image or describe symptoms.'); return; }
     setLoading(true); setResponse(null); setError(null);
 
@@ -106,23 +105,7 @@ export default function AISymptomChecker({ patients = [] }) {
             Powered by Groq · llama-4-scout · For learning purposes only
           </div>
 
-          <div style={{ marginBottom: 14 }}>
-            <FL label="Groq API Key" required />
-            <input
-              type="password" value={apiKey}
-              onChange={e => setApiKey(e.target.value)}
-              placeholder="gsk_..."
-              style={iStyle}
-              onFocus={e => e.target.style.borderColor = '#c47d0a'}
-              onBlur={e => e.target.style.borderColor = 'var(--border)'}
-            />
-            <div style={{ fontSize: 11, color: 'var(--text3)', marginTop: 4 }}>
-              Free key at{' '}
-              <a href="https://console.groq.com" target="_blank" rel="noreferrer" style={{ color: '#c47d0a' }}>
-                console.groq.com
-              </a>
-            </div>
-          </div>
+
 
           <div style={{ marginBottom: 14 }}>
             <FL label="Select Patient (optional)" />
