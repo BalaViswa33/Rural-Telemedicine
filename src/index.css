@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --teal:       #0a8a6a;
+  --teal-d:     #077a5c;
+  --blue:       #1a6fd4;
+  --amber:      #c47d0a;
+  --violet:     #6b46c1;
+  --red:        #dc2626;
+  --green:      #16a34a;
+
+  --c-patient:  #0a8a6a;
+  --c-asha:     #c47d0a;
+  --c-doctor:   #1a6fd4;
+  --c-admin:    #6b46c1;
+
+  /* White canvas */
+  --bg:         #f5f7fa;
+  --surface:    #ffffff;
+  --surface2:   #f1f4f8;
+  --surface3:   #e5eaf1;
+  --border:     #dde2ea;
+  --border2:    #c8cfd9;
+
+  /* Text */
+  --text:       #0f1623;
+  --text2:      #4a5568;
+  --text3:      #8896aa;
+
+  --sidebar-w:  260px;
+  --header-h:   64px;
+
+  --font: 'Inter', sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+  --radius: 10px;
+  --radius-lg: 14px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 15px; scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+#root { position: relative; z-index: 1; }
+
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--surface3); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text3); }
+
+@keyframes fadeUp   { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeIn   { from { opacity:0; } to { opacity:1; } }
+@keyframes pulse    { 0%,100% { opacity:1; } 50% { opacity:.4; } }
+@keyframes spin     { to { transform: rotate(360deg); } }
+@keyframes slideIn  { from { transform:translateX(-10px); opacity:0; } to { transform:translateX(0); opacity:1; } }
+
+.page-enter { animation: fadeUp .25s ease both; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  transition: border-color .2s, box-shadow .2s;
+}
+.card:hover { border-color: var(--border2); box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+
+button { cursor: pointer; font-family: var(--font); }
+button:active { transform: scale(.98); }

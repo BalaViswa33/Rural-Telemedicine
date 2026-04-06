@@ -1,0 +1,199 @@
+Health System v2.0 - Complete File Structure
+=============================================
+
+health-system-v2/
+│
+├── 📄 Configuration Files
+│   ├── package.json              - Dependencies and scripts
+│   ├── vite.config.js            - Vite build configuration
+│   └── index.html                - HTML entry point
+│
+├── 📚 Documentation
+│   ├── README.md                 - Complete project documentation
+│   ├── CHANGES.md                - Version 2.0 change log
+│   ├── QUICKSTART.md             - 5-minute getting started guide
+│   ├── FEATURES.md               - Detailed feature showcase
+│   ├── DEPLOYMENT.md             - Production deployment guide
+│   └── FILE_STRUCTURE.txt        - This file
+│
+├── src/                          - Source code
+│   │
+│   ├── 🎨 Components
+│   │   ├── DashboardLayout.jsx       - Reusable dashboard layout with header
+│   │   ├── ProtectedRoute.jsx        - Route protection with role checking
+│   │   └── OfflineIndicator.jsx      - ✨ NEW: Visual offline/online indicator
+│   │
+│   ├── 📱 Pages
+│   │   ├── Login.jsx                 - Login page with role selection
+│   │   ├── ASHADashboard.jsx         - ✨ ENHANCED: Offline-first patient registration & vitals
+│   │   ├── DoctorDashboard.jsx       - ✨ ENHANCED: AI prescription parser & TTS
+│   │   ├── PatientDashboard.jsx      - ✨ ENHANCED: Smart reminders & voice output
+│   │   ├── AdminDashboard.jsx        - System administration dashboard
+│   │   └── Unauthorized.jsx          - Access denied page
+│   │
+│   ├── 🔧 Context
+│   │   └── AuthContext.jsx           - Authentication state management
+│   │
+│   ├── 🛠️ Utils
+│   │   ├── db.js                     - ✨ NEW: IndexedDB manager
+│   │   ├── prescriptionParser.js     - ✨ NEW: AI prescription parser (NLP)
+│   │   └── notifications.js          - ✨ NEW: Notification & TTS manager
+│   │
+│   ├── App.jsx                   - Main app with routing
+│   ├── main.jsx                  - React entry point
+│   └── index.css                 - Global styles
+│
+└── dist/                         - Production build (generated)
+    ├── index.html
+    └── assets/
+        ├── index-[hash].js
+        ├── vendor-[hash].js
+        ├── utils-[hash].js
+        └── index-[hash].css
+
+
+Key Features by File
+====================
+
+1. OFFLINE SUPPORT
+   - db.js                    → IndexedDB operations (CRUD)
+   - OfflineIndicator.jsx     → Visual connection status
+   - ASHADashboard.jsx        → Offline patient registration & sync
+
+2. AI PRESCRIPTION PARSER
+   - prescriptionParser.js    → NLP-based medicine extraction
+   - DoctorDashboard.jsx      → Free-text input & structured output
+
+3. SMART REMINDERS & TTS
+   - notifications.js         → Browser notifications & speech synthesis
+   - PatientDashboard.jsx     → Reminder scheduling & voice playback
+
+4. DATA MANAGEMENT
+   - db.js                    → Stores: patients, vitals, prescriptions
+   - All dashboards           → IndexedDB integration
+
+
+Code Statistics
+===============
+
+Total Files: 21
+New Files (v2.0): 6
+Enhanced Files (v2.0): 4
+Lines of Code: ~4,500
+Documentation: ~3,000 words
+
+Technologies Used:
+- React 18.3
+- Vite 5.2
+- React Router 6.22
+- IndexedDB (native)
+- Web Notifications API (native)
+- Speech Synthesis API (native)
+- No external paid APIs ✅
+
+
+Installation
+============
+
+1. Navigate to directory:
+   cd health-system-v2
+
+2. Install dependencies:
+   npm install
+
+3. Start development server:
+   npm run dev
+
+4. Open browser:
+   http://localhost:5173
+
+5. Build for production:
+   npm run build
+
+
+Quick Test Scenarios
+=====================
+
+Test 1: Offline Patient Registration (ASHA)
+1. Login as ASHA
+2. DevTools → Network → Offline
+3. Register patient
+4. Record vitals
+5. See "Offline Mode" indicator
+6. Go online
+7. Click "Sync Data"
+
+Test 2: AI Prescription Parser (Doctor)
+1. Login as Doctor
+2. Select patient
+3. Enter free-text prescription
+4. Click "Parse with AI"
+5. Edit if needed
+6. Save
+
+Test 3: Medicine Reminders (Patient)
+1. Login as Patient
+2. Go to Reminders tab
+3. Enable notifications
+4. See scheduled reminders
+5. Click "Listen" for voice
+6. Mark as taken
+
+
+Browser Support
+===============
+
+✅ Chrome 90+
+✅ Firefox 88+
+✅ Safari 14+
+✅ Edge 90+
+
+Features Requiring Modern Browser:
+- IndexedDB (all modern browsers)
+- Notifications (HTTPS required in production)
+- Speech Synthesis (Chrome/Edge recommended)
+- Service Workers (for PWA, optional)
+
+
+Storage Usage
+=============
+
+IndexedDB Stores:
+- patients           → ~1KB per patient
+- vitals             → ~500B per record
+- prescriptions      → ~2KB per prescription
+
+Estimated capacity:
+- 1000 patients      → ~1MB
+- 5000 vitals        → ~2.5MB
+- 2000 prescriptions → ~4MB
+Total: ~7.5MB (well within 50MB+ limit)
+
+
+Production Checklist
+====================
+
+□ Replace demo sync with real API
+□ Implement proper JWT authentication
+□ Enable HTTPS (required for notifications)
+□ Add data encryption
+□ Setup error tracking (Sentry)
+□ Configure analytics
+□ Write E2E tests
+□ Setup CI/CD pipeline
+□ Configure monitoring
+□ Document API endpoints
+□ Train support team
+□ Prepare rollback plan
+
+
+For More Information
+====================
+
+See individual .md files for detailed documentation:
+- README.md       → Complete overview
+- QUICKSTART.md   → Get started in 5 minutes
+- FEATURES.md     → Feature deep-dive
+- CHANGES.md      → What's new in v2.0
+- DEPLOYMENT.md   → Production deployment
+
